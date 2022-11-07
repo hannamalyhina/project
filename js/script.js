@@ -260,12 +260,30 @@ const personalMovieDB = {
 
 
 
-for(let i = 1; i < 3; i++){
+for(let i = 0; i < 2; i++){
     let a = prompt("Один из последних просмотернных фильмов?", "");
     let b = prompt("На сколько его оцените?", "");
-    personalMovieDB.movies[a] = b;  
+    
+    if (a != '' && b != '' && a != null && b != null && a.length < 50){
+        personalMovieDB.movies[a] = b;  
+        console.log('done');
+    } else{
+        console.log('error');
+        i--;
+    }
+    if (personalMovieDB.count < 10){
+        console.log('Просмотрено довольно мало фильмов');
+    }
+    else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30){
+        console.log('Вы классический зритель');
+    }
+    else if (personalMovieDB.count > 30){
+        console.log('ВЫ киноман!');
+    }
+    else{
+        console.log('Произошла ошибка');
+    }
 }
-
 console.log(personalMovieDB);
 
 // const arr = [3, 5, 8, 16, 20, 23, 50];
@@ -321,3 +339,48 @@ console.log(personalMovieDB);
 // }
 
 // console.log(result)
+
+// function sayHello(name) {
+//     return `Hello, ${name}!`;
+// }
+//     sayHello('Anna');
+
+//     function returnNeighboringNumbers(int){
+//         return [(int - 1), int, (int + 1)];
+//     }
+//     returnNeighboringNumbers(5);
+
+//     function getMathResult(baseNum, times){
+//         if (typeof(times) !=='number'|| times <= 0) {
+//             return baseNum;
+//         }
+
+//         let str = '';
+
+//         for (let i = 1; i <= times; i++) {
+//             if (i === times) {
+//                 str += `${baseNum * i}` ;
+//             } else {
+//                 str += `${baseNum * i}---`;
+//             }
+//         }
+//         return str;
+//     }
+//     getMathResult (10, 5);
+
+// const str = 'test';
+// console.log(str[3]);
+
+// const str = 'test';
+// console.log(str.toUpperCase());
+    
+
+// const str = 'teSt';
+// console.log(str.toLocaleLowerCase());
+// console.log(str);
+
+// const logg= 'Hello world!';
+// console.log(logg.slice(1));
+
+// const logg= 'Hello world!';
+// console.log(logg.substr(1, 3));
